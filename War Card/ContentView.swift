@@ -24,10 +24,15 @@ struct ContentView: View {
                         .frame(width: 50.0)
                     Image("back")
                 }
-                .padding(.bottom, 50.0)
+                    .padding(.bottom, 50.0)
                 
 //                Deal button
-                Image("button")
+                Button() {
+                    dealCards()
+                } label: {
+                    Image("button")
+                }
+                
                     .padding(.bottom, 50.0)
                 
 //                Hstack of score
@@ -48,12 +53,12 @@ struct ContentView: View {
                     }
                 }
                 .foregroundColor(/*@START_MENU_TOKEN@*/Color(hue: 1.0, saturation: 0.008, brightness: 0.987)/*@END_MENU_TOKEN@*/)
-                
-                
             }
-            
-            
         }
+    }
+    
+    func dealCards() {
+        print("Deal")
     }
 }
 
