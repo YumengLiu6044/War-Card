@@ -64,18 +64,27 @@ struct ContentView: View {
         }
     }
     
-    func randomCard () -> String
+    func randomCard () -> Int
     {
-        return String(Int.random(in: 2...14))
+        return Int.random(in: 2...14)
     }
     
-    func updateScore ()
-    {
-        if (playerCard > cpuCard)
+    func dealCards() {
+        let playerCardNum: Int = randomCard()
+        let cpuCardNum: Int = randomCard()
+        
+        // Randomizes the player's card
+        playerCard = "card" + String(playerCardNum)
+        
+        // Randomizes the CPU's card
+        cpuCard = "card" + String(cpuCardNum)
+        
+        // Update score
+        if (playerCardNum > cpuCardNum)
         {
             playerScore += 1
         }
-        else if (cpuCard > playerCard)
+        else if (cpuCardNum > playerCardNum)
         {
             cpuScore += 1
         }
@@ -83,16 +92,7 @@ struct ContentView: View {
         {
             // Tie
         }
-    }
-    
-    func dealCards() {
-        // Randomizes the player's card
-        playerCard = "card" + randomCard()
         
-        // Randomizes the CPU's card
-        cpuCard = "card" + randomCard()
-        
-        updateScore()
     }
     
     
